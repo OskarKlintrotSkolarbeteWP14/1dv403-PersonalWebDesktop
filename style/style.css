@@ -1,0 +1,27 @@
+* {
+    margin: 0;
+}
+html, body {
+    height: 100%;
+    background-image: url(http://subtlepatterns.com/patterns/footer_lodyas.png);
+}
+main {
+    min-height: 100%;
+    /* equal to footer height */
+    margin-bottom: -75px;
+}
+main:after {
+    content: "";
+    display: block;
+}
+.site-footer, main:after {
+    height: 75px;
+}
+.site-footer {
+
+    background-color: rgba(81,81,81,0.4);
+}
+
+/*
+    Sticky footer from http://css-tricks.com/snippets/css/sticky-footer/
+*/
