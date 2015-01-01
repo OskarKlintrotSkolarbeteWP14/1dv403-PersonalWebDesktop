@@ -1,3 +1,11 @@
+@import url(http://fonts.googleapis.com/css?family=Raleway|Roboto|Open+Sans);
+
+/*
+    * font-family: 'Raleway', sans-serif;
+    * font-family: 'Roboto', sans-serif;
+    * font-family: 'Open Sans', sans-serif;
+*/
+
 * {
     margin: 0;
 }
@@ -5,23 +13,105 @@ html, body {
     height: 100%;
     background-image: url(http://subtlepatterns.com/patterns/footer_lodyas.png);
 }
-main {
+p {
+    margin-bottom: 10px;
+}
+
+        /*      Desktop properties      */
+#desktop {
     min-height: 100%;
     /* equal to footer height */
     margin-bottom: -75px;
+    display: flex;
+    flex-direction: row;
 }
-main:after {
+#desktop:after {
     content: "";
     display: block;
 }
-.site-footer, main:after {
+#taskbar, #desktop:after {
     height: 75px;
 }
-.site-footer {
-
+#taskbar {
     background-color: rgba(81,81,81,0.4);
+    display: flex;
+}
+
+
+            /*      Window properties       */
+.window {
+    width: 400px;
+    height: 500px;
+    border: 7px solid #4a4a4a;
+    margin: 40px 30px 30px 100px;
+    border-radius: 10px;
+    box-shadow: 5px 10px 30px -5px #000000;
+    background-color: grey;
+}
+
+.window:first-of-type {
+    margin-left: 30px;
+}
+
+.window-content {
+    min-height: 100%;
+    margin-bottom: -30px;
+}
+
+.window header {
+    height: 25px;
+    padding: 5px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.window header h1 {
+    font-size: 20px;
+    display: inline;
+    margin: 5px;
+}
+
+.window-close {
+    float: right;
+}
+
+.window main {
+    height: 435px;
+    overflow-y: auto;
+    font-family: 'Raleway', sans-serif;
+    border-top: thin solid darkgrey;
+    border-bottom: thin solid darkgrey;
+    background-color: white;
+}
+
+.window main p {
+    margin: 5px;
+}
+
+.window footer {
+    height: 30px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.window footer p {
+    display: inline;
+    margin: 5px;
+}
+
+.loading {
+    padding: 5px;
+}
+
+        /*      Image viewer        */
+
+.image-viewer header {
+}
+
+        /*      Webcam viewer        */
+
+.webcam header {
+
 }
 
 /*
-    Sticky footer from http://css-tricks.com/snippets/css/sticky-footer/
+    Sticky footer adopted from http://css-tricks.com/snippets/css/sticky-footer/
 */
