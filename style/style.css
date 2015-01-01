@@ -10,7 +10,7 @@
     margin: 0;
 }
 html, body {
-    height: 100%;
+    height: 99%;
     background-image: url(http://subtlepatterns.com/patterns/footer_lodyas.png);
     min-height: 650px;
     min-width: 1050px;
@@ -109,13 +109,29 @@ p {
 
         /*      Image viewer        */
 
-.image-viewer header {
+.image-viewer {
+
 }
 
         /*      Webcam viewer        */
 
-.webcam header {
+.webcam {
 
+}
+
+        /*      Taskbar properties       */
+#taskbar a {
+    padding: 7px 10px 0 20px;
+    text-decoration: none;
+}
+
+#taskbar a:first-of-type {
+    padding: 7px 10px 0 30px;
+}
+
+#taskbar {
+    border-top: thin solid black;
+    border-bottom: thin solid black;
 }
 
 /*
