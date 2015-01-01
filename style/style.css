@@ -72,6 +72,10 @@ p {
     margin: 5px;
 }
 
+.window header a {
+    text-decoration: none;
+}
+
 .window-close {
     float: right;
 }
