@@ -12,6 +12,8 @@
 html, body {
     height: 100%;
     background-image: url(http://subtlepatterns.com/patterns/footer_lodyas.png);
+    min-height: 650px;
+    min-width: 1050px;
 }
 p {
     margin-bottom: 10px;
