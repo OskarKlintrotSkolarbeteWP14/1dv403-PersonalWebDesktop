@@ -19,6 +19,10 @@ p {
     margin-bottom: 10px;
 }
 
+.hidden {
+    display: none !important;
+}
+
         /*      Desktop properties      */
 #desktop {
     min-height: 100%;
