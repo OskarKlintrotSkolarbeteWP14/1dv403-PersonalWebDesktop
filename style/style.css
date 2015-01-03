@@ -53,6 +53,8 @@ p {
     border-radius: 10px;
     box-shadow: 5px 10px 30px -5px #000000;
     background-color: grey;
+    border-top-color: silver;
+    border-bottom-color: silver;
 }
 
 .window:first-of-type {
