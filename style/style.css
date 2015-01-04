@@ -43,13 +43,12 @@ p {
     display: flex;
 }
 
-
             /*      Window properties       */
 .window {
     width: 400px;
     height: 500px;
     border: 7px solid #4a4a4a;
-    margin: 40px 30px 30px 100px;
+    margin: 40px 30px 30px 80px;
     border-radius: 10px;
     box-shadow: 5px 10px 30px -5px #000000;
     background-color: grey;
