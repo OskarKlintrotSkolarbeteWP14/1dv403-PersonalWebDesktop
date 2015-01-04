@@ -3,7 +3,14 @@
  */
 "use strict";
 
-define(["Mustache", "jQuery", "Require", "ImageViewer", "WebcamViewer"], function(Mustache, jQuery, Require, ImageViewer, WebcamViewer) {
+define(
+    [
+        "Mustache",
+        "jQuery",
+        "ImageViewer",
+        "WebcamViewer"
+    ],
+    function(Mustache, jQuery, ImageViewer, WebcamViewer) {
 
     var ImageViewerWindow = new ImageViewer("test");
     var ImageViewerWindow2 = new ImageViewer("hello world");

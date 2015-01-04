@@ -4,16 +4,15 @@
 "use strict";
 
 require.config({
+    baseUrl: 'script/lib',
     paths: {
         //Libraries
-        Require: "lib/require",
-        jQuery: "lib/jquery-2.1.3",
-        Mustache: "lib/mustache",
+        Mustache: "mustache",
 
         //Modules
-        ImageViewer: "lib/modules/ImageViewer",
-        WebcamViewer: "lib/modules/WebcamViewer"
+        ImageViewer: "modules/ImageViewer",
+        WebcamViewer: "modules/WebcamViewer"
     }
 });
 
-require(["lib/modules/DesktopApp"]);
+require(["modules/DesktopApp"]);
