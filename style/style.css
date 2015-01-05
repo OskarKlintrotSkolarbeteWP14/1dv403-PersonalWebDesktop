@@ -19,6 +19,13 @@ p {
     margin-bottom: 10px;
 }
 
+noscript {
+    margin: auto;
+    font-size: x-large;
+    font-family: 'Roboto', sans-serif;
+    color: silver;
+}
+
 .hidden {
     display: none !important;
 }
