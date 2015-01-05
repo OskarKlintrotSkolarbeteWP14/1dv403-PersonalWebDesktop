@@ -10,9 +10,10 @@ require.config({
         Mustache: "mustache",
 
         //Modules
+        DesktopApp: "modules/DesktopApp",
         ImageViewer: "modules/ImageViewer",
         WebcamViewer: "modules/WebcamViewer"
     }
 });
 
-require(["modules/DesktopApp"]);
+require(["DesktopApp"]);

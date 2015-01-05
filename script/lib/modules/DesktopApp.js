@@ -5,15 +5,17 @@
 
 define(
     [
+        "DesktopApp",
         "Mustache",
         "jQuery",
-        "ImageViewer",
-        "WebcamViewer"
+        "ImageViewer"
     ],
-    function(Mustache, jQuery, ImageViewer, WebcamViewer) {
+    function(DesktopApp, Mustache, jQuery, ImageViewer) {
+        var imageWindowArray = [];
+        var imageIcon = document.querySelector("#imageIcon");
 
-    var ImageViewerWindow = new ImageViewer("test");
-    var ImageViewerWindow2 = new ImageViewer("hello world");
-    var WebcamViewerWindow = new WebcamViewer();
-
+        imageIcon.addEventListener("click", function (e) {
+            imageWindowArray[imageWindowArray.length] = new ImageViewer(imageWindowArray.length, imageWindowArray.length);
+            e.preventDefault();
+        });
 });
