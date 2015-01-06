@@ -7,7 +7,7 @@
 
 define(["ImageViewer"], function() {
     var Mustache = require('Mustache');
-    var DesktopApp = require(['DesktopApp']);
+    //var DesktopApp = require(['DesktopApp']);
 
     var ImageViewer = function(id, content){
         var obj = {
@@ -28,9 +28,9 @@ define(["ImageViewer"], function() {
                 desktop.insertAdjacentHTML('beforeend', rendered);
                 var closeIcon = document.querySelector(".window-close.close-button-" + id);
                 closeIcon.addEventListener("click", function (e) {
+                    e.preventDefault();
                     console.log("rtst" + id);
                     console.log(DesktopApp.imageWindowArray);
-                    e.preventDefault();
                 })
             }
         };
