@@ -15,7 +15,7 @@ define(
         var imageIcon = document.querySelector("#imageIcon");
 
         imageIcon.addEventListener("click", function (e) {
-            imageWindowArray[imageWindowArray.length] = new ImageViewer(imageWindowArray.length, imageWindowArray.length);
             e.preventDefault();
+            imageWindowArray[imageWindowArray.length] = new ImageViewer(imageWindowArray.length, imageWindowArray.length);
         });
 });

@@ -12,7 +12,8 @@ define(["ImageViewer"], function() {
     var ImageViewer = function(id, content){
         var obj = {
             TypeOfWindow: "image-viewer",
-            ID: "close-button-" + id,
+            WindowID: "window-" + id,
+            CloseButtonID: "close-button-" + id,
             IconURL: "https://openclipart.org/people/jhnri4/Images-icon.svg",
             Title: "Image Viewer",
             Content: content
@@ -26,11 +27,15 @@ define(["ImageViewer"], function() {
                 var rendered = Mustache.render(xhr.responseText, obj);
                 var desktop = document.querySelector("#desktop");
                 desktop.insertAdjacentHTML('beforeend', rendered);
+                var thisWindow = document.querySelector(".window.window-" + id);
                 var closeIcon = document.querySelector(".window-close.close-button-" + id);
                 closeIcon.addEventListener("click", function (e) {
                     e.preventDefault();
                     console.log("rtst" + id);
-                    console.log(DesktopApp.imageWindowArray);
+                    //console.log(window.imageWindowArray.length);
+                    //window.imageWindowArray.splice(id, 1);
+                    thisWindow.remove();
+
                 })
             }
         };
