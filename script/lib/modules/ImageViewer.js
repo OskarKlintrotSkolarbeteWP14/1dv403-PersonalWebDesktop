@@ -13,27 +13,29 @@ define(["ImageViewer"], function() {
         var obj = {
             TypeOfWindow: "image-viewer",
             ID: "close-button-" + id,
-            IconURL: "https://openclipart.org/people/jhnri4/Images_icon.svg",
+            IconURL: "https://openclipart.org/people/jhnri4/Images-icon.svg",
             Title: "Image Viewer",
             Content: content
         };
 
-/*        var xhr = new XMLHttpRequest();
-        xhr.onreadystatechange = function () {
-            var rendered = Mustache.render(xhr.responseText, obj);
-            var desktop = document.querySelector("#desktop");
-            desktop.insertAdjacentHTML('beforeend', rendered);
-            var closeIcon = document.querySelector(".window-close.close-button-" + id);
-            closeIcon.addEventListener("click", function(e){
-                console.log("rtst" + id);
-                console.log(DesktopApp.imageWindowArray);
-            e.preventDefault();
-            })
-        };
+        var xhr = new XMLHttpRequest();
         xhr.open('GET', 'template/Window.template', true);
-        xhr.send(null);*/
+        xhr.send(null);
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4  && xhr.status === 200) {
+                var rendered = Mustache.render(xhr.responseText, obj);
+                var desktop = document.querySelector("#desktop");
+                desktop.insertAdjacentHTML('beforeend', rendered);
+                var closeIcon = document.querySelector(".window-close.close-button-" + id);
+                closeIcon.addEventListener("click", function (e) {
+                    console.log("rtst" + id);
+                    console.log(DesktopApp.imageWindowArray);
+                    e.preventDefault();
+                })
+            }
+        };
 
-        $.get('template/Window.template', function(template) {
+/*        $.get('template/Window.template', function(template) {
             var rendered = Mustache.render(template, obj);
             $('#desktop').append(rendered);
             var closeIcon = document.querySelector(".window-close.close-button-" + id);
@@ -42,7 +44,7 @@ define(["ImageViewer"], function() {
                 console.log(DesktopApp.imageWindowArray);
                 e.preventDefault();
             })
-        });
+        });*/
     };
     return ImageViewer;
 });
