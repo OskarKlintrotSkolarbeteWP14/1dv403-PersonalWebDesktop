@@ -1,6 +1,6 @@
 <div class ="window {{ TypeOfWindow }} {{ WindowID }}">
     <div class="window-content">
-        <header>
+        <header class="header-{{ WindowID }}">
             <img src=" {{ IconURL }}" alt="" height="25px"/>
             <h1>{{ Title }}</h1>
             <a href="#" class="window-close {{ CloseButtonID }}">
@@ -11,5 +11,5 @@
             {{{Content}}}
         </main>
     </div>
-    <footer><div class="loading hidden" ><img src="style/pics/ajax-loader.gif" alt=""/><p>Loading window...</p></div></footer>
+    <footer><div class="loading"><img src="style/pics/ajax-loader.gif" alt=""/><p>Loading window...</p></div></footer>
 </div>
