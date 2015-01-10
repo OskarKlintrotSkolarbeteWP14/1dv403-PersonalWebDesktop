@@ -15,7 +15,7 @@ define(["ImageViewer"], function() {
             CloseButtonID: "close-button-" + id,
             IconURL: "https://openclipart.org/people/jhnri4/Images-icon.svg",
             Title: "Image Viewer",
-            Content: content
+            //Content: content
         };
 
         var setupWindow = function(template){
@@ -28,7 +28,7 @@ define(["ImageViewer"], function() {
             var thisWindow = desktop.querySelector(".window.window-" + id);
             var closeIcon = desktop.querySelector(".window-close.close-button-" + id);
             var header = desktop.querySelector(".header-window-" + id);
-            var main = desktop.querySelector(".window-content main");
+            var main = desktop.querySelector("main.window-" + id);
             var footer = desktop.querySelector(".window-" + id + " footer");
             var loading = footer.querySelector(".loading");
 
@@ -44,10 +44,10 @@ define(["ImageViewer"], function() {
                 footer.classList.toggle("hidden");
             });
 
-            loadImageViewerApp(loading);
+            loadImageViewerApp(main, loading);
         };
 
-        var loadImageViewerApp = function(loading){
+        var loadImageViewerApp = function(main, loading){
             var imageArray;
 
             var xhr = new XMLHttpRequest();
@@ -60,22 +60,25 @@ define(["ImageViewer"], function() {
                 if (xhr.readyState === 4  && xhr.status === 200) {
                     loading.classList.add("hidden");
                     imageArray = JSON.parse(xhr.responseText);
-                    renderImageViewerApp(imageArray);
+                    renderImageViewerApp(main, imageArray);
                 }
             };
         };
 
-        var renderImageViewerApp = function (jsonArrayFromServer) {
-            console.log(jsonArrayFromServer);
+        var renderImageViewerApp = function (main, jsonArrayFromServer) {
+            //console.log(jsonArrayFromServer);
 
             var i = 0;
+            var j = 0;
+            var k = 0;
             var widthThumbArray = [];
             var maxThumbWidth = undefined;
             var heightThumbArray = [];
             var maxThumbHeight = undefined;
-            var numberOfImages = jsonArrayFromServer.length;
             var thumbURL = [];
             var imgURL = [];
+            var aArray = [];
+            var imgArray = [];
 
             //Save the data from server
             for(i = 0; i < jsonArrayFromServer.length; i++) {
@@ -83,13 +86,34 @@ define(["ImageViewer"], function() {
                 heightThumbArray[i] = jsonArrayFromServer[i].thumbHeight;
                 thumbURL[i] = jsonArrayFromServer[i].thumbURL;
                 imgURL[i] = jsonArrayFromServer[i].URL;
-            };
-
+            }
             //Max and min
             maxThumbWidth = Math.max.apply(null, widthThumbArray);
             maxThumbHeight = Math.max.apply(null, heightThumbArray);
-            console.log(maxThumbWidth);
-            console.log(maxThumbHeight);
+            document.styleSheets[0].cssRules[23].style.width=maxThumbWidth + "px";
+            document.styleSheets[0].cssRules[23].style.height=maxThumbHeight + "px";
+
+            //Function for setting event on a-tag when rendering the images
+            function onClickFunction(j){
+                aArray[j].addEventListener("click", function(e){
+                    e.preventDefault();
+                    document.styleSheets[0].cssRules[2].style.backgroundImage = "url(" + jsonArrayFromServer[j].URL + ")";
+                });
+            }
+
+            //Render the images
+            for (j = 0; j < jsonArrayFromServer.length; j++) {
+                aArray[j] = document.createElement("a");
+                imgArray[j] = document.createElement("img");
+                aArray[j].href = "#";
+                onClickFunction(j);
+                imgArray[j].src = jsonArrayFromServer[j].thumbURL;
+                aArray[j].appendChild(imgArray[j]);
+            }
+
+            for (k = 0; k < aArray.length; k++) {
+                main.appendChild(aArray[k]);
+            }
 
         };
 

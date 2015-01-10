@@ -15,6 +15,7 @@ html, body {
     min-height: 650px;
     min-width: 1050px;
 }
+
 p {
     margin-bottom: 10px;
 }
@@ -38,13 +39,16 @@ noscript {
     display: flex;
     flex-direction: row;
 }
+
 #desktop:after {
     content: "";
     display: block;
 }
+
 #taskbar, #desktop:after {
     height: 75px;
 }
+
 #taskbar {
     background-color: rgba(81,81,81,0.4);
     display: flex;
@@ -121,14 +125,20 @@ noscript {
 
         /*      Image viewer        */
 
-.image-viewer {
-
+.image-viewer main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 
-        /*      Webcam viewer        */
-
-.webcam {
-
+.image-viewer main a {
+    display: flex;
+    justify-content: center;
+    border: solid thin black;
+    border-radius: 5px;
+    background-color: #bababa;
+    padding: 10px;
+    margin: 5px;
 }
 
         /*      Taskbar properties       */

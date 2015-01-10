@@ -7,7 +7,7 @@
                 <img src="https://openclipart.org/people/henrikhoff/close-button.svg" alt="" height="25px"/>
             </a>
         </header>
-        <main>
+        <main class ="{{ WindowID }}">
             {{{Content}}}
         </main>
     </div>
