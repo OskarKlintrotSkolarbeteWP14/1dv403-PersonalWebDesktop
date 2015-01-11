@@ -31,12 +31,17 @@ define(["ImageViewer"], function() {
             var main = desktop.querySelector("main.window-" + id);
             var footer = desktop.querySelector(".window-" + id + " footer");
             var loading = footer.querySelector(".loading");
+            var desktopMain = document.querySelector("body");
 
             //Add events
             closeIcon.addEventListener("click", function (e) {
                 e.preventDefault();
                 console.log("Closed window " + id);
                 thisWindow.remove();
+                //If the main is empty, the reset the background image
+                if (desktopMain.innerHTML.indexOf("noscript>\n</main") > -1) {
+                    document.styleSheets[0].cssRules[2].style.backgroundImage = "url(http://subtlepatterns.com/patterns/footer_lodyas.png)";
+                }
             });
 
             header.addEventListener("click", function(){
