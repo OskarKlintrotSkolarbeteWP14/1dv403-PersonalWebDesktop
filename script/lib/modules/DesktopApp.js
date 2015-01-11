@@ -16,6 +16,6 @@ define(
 
         imageIcon.addEventListener("click", function (e) {
             e.preventDefault();
-            imageWindowArray[imageWindowArray.length] = new ImageViewer(imageWindowArray.length, imageWindowArray.length);
+            imageWindowArray[imageWindowArray.length] = new ImageViewer(imageWindowArray.length, "Fetching images from external source...");
         });
 });

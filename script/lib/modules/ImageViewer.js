@@ -15,7 +15,7 @@ define(["ImageViewer"], function() {
             CloseButtonID: "close-button-" + id,
             IconURL: "https://openclipart.org/people/jhnri4/Images-icon.svg",
             Title: "Image Viewer",
-            //Content: content
+            Content: content
         };
 
         var setupWindow = function(template){
@@ -35,7 +35,7 @@ define(["ImageViewer"], function() {
             //Add events
             closeIcon.addEventListener("click", function (e) {
                 e.preventDefault();
-                console.log("rtst" + id);
+                console.log("Closed window " + id);
                 thisWindow.remove();
             });
 
@@ -68,13 +68,13 @@ define(["ImageViewer"], function() {
         var renderImageViewerApp = function (main, jsonArrayFromServer) {
             //console.log(jsonArrayFromServer);
 
-            var i = 0;
-            var j = 0;
-            var k = 0;
+            var i;
+            var j;
+            var k;
             var widthThumbArray = [];
-            var maxThumbWidth = undefined;
+            var maxThumbWidth;
             var heightThumbArray = [];
-            var maxThumbHeight = undefined;
+            var maxThumbHeight;
             var thumbURL = [];
             var imgURL = [];
             var aArray = [];
@@ -111,6 +111,10 @@ define(["ImageViewer"], function() {
                 aArray[j].appendChild(imgArray[j]);
             }
 
+            //Clear the main
+            main.innerHTML = "";
+
+            //Append the images to the main in the window
             for (k = 0; k < aArray.length; k++) {
                 main.appendChild(aArray[k]);
             }
@@ -130,16 +134,20 @@ define(["ImageViewer"], function() {
 
         init();
 
+
+        //An example of how to get the mustache template with jQuery, keeping this for personal references
 /*        $.get('template/Window.template', function(template) {
             var rendered = Mustache.render(template, obj);
             $('#desktop').append(rendered);
             var closeIcon = document.querySelector(".window-close.close-button-" + id);
             closeIcon.addEventListener("click", function(e){
-                console.log("rtst" + id);
+                console.log("Window ID: " + id);
                 console.log(DesktopApp.imageWindowArray);
                 e.preventDefault();
             })
         });*/
+
     };
+
     return ImageViewer;
 });

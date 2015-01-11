@@ -11,8 +11,7 @@ require.config({
 
         //Modules
         DesktopApp: "modules/DesktopApp",
-        ImageViewer: "modules/ImageViewer",
-        WebcamViewer: "modules/WebcamViewer"
+        ImageViewer: "modules/ImageViewer"
     }
 });
 
