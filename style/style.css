@@ -56,15 +56,15 @@ noscript {
 
             /*      Window properties       */
 .window {
-    width: 400px;
-    height: 500px;
-    border: 7px solid #4a4a4a;
-    margin: 40px 30px 30px 80px;
-    border-radius: 10px;
-    box-shadow: 5px 15px 35px -2px #000000;
-    background-color: grey;
-    /*border-top-color: silver;*/
-    /*border-bottom-color: silver;*/
+     width: 400px;
+     height: 500px;
+     border: 7px solid #4a4a4a;
+     margin: 40px 30px 30px 80px;
+     border-radius: 10px;
+     box-shadow: 5px 15px 35px -2px #000000;
+     background-color: grey;
+     /*border-top-color: silver;*/
+     /*border-bottom-color: silver;*/
 }
 
 .window:first-of-type {
@@ -75,6 +75,7 @@ noscript {
     min-height: 100%;
     margin-bottom: -30px;
 }
+
 
 .window header {
     height: 25px;
@@ -154,6 +155,11 @@ noscript {
 #taskbar {
     border-top: thin solid black;
     border-bottom: thin solid black;
+}
+
+        /*For some reason this needs to be at the bottom of the style cheat     */
+.minimize {
+    height: 35px !important;
 }
 
 /*

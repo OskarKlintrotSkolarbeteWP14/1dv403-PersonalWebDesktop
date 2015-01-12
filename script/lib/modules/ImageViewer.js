@@ -44,7 +44,9 @@ define(["ImageViewer"], function() {
                 }
             });
 
+             //Hide window when clicking on the header
             header.addEventListener("click", function(){
+                thisWindow.classList.toggle("minimize");
                 main.classList.toggle("hidden");
                 footer.classList.toggle("hidden");
             });
