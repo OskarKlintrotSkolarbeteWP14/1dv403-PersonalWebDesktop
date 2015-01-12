@@ -18,7 +18,7 @@ define(["ImageViewer"], function() {
             Content: content
         };
 
-        var setupWindow = function(template){
+         function setupWindow(template){
             //Render the window
             var rendered = Mustache.render(template, obj);
             var desktop = document.querySelector("#desktop");
@@ -52,7 +52,7 @@ define(["ImageViewer"], function() {
             loadImageViewerApp(main, loading);
         };
 
-        var loadImageViewerApp = function(main, loading){
+        function loadImageViewerApp(main, loading){
             var imageArray;
 
             var xhr = new XMLHttpRequest();
@@ -70,7 +70,7 @@ define(["ImageViewer"], function() {
             };
         };
 
-        var renderImageViewerApp = function (main, jsonArrayFromServer) {
+        function renderImageViewerApp(main, jsonArrayFromServer) {
             //console.log(jsonArrayFromServer);
 
             var i;
@@ -126,7 +126,7 @@ define(["ImageViewer"], function() {
 
         };
 
-        var init = function () {
+        function init() {
             var xhrTemplate = new XMLHttpRequest();
             xhrTemplate.open('GET', 'template/Window.template', true);
             xhrTemplate.send(null);
