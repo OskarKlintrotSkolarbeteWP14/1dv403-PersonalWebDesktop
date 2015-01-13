@@ -97,8 +97,10 @@ define(["ImageViewer"], function() {
             //Max and min
             maxThumbWidth = Math.max.apply(null, widthThumbArray);
             maxThumbHeight = Math.max.apply(null, heightThumbArray);
-            document.styleSheets[0].cssRules[23].style.width=maxThumbWidth + "px";
-            document.styleSheets[0].cssRules[23].style.height=maxThumbHeight + "px";
+            document.styleSheets[0].cssRules[24].style.maxWidth=maxThumbWidth + "px";
+            document.styleSheets[0].cssRules[24].style.maxHeight=maxThumbHeight + "px";
+            document.styleSheets[0].cssRules[25].style.width=maxThumbWidth + "px";
+            document.styleSheets[0].cssRules[25].style.height=maxThumbHeight + "px";
 
             //Function for setting event on a-tag when rendering the images
             function onClickFunction(j){

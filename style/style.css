@@ -31,6 +31,10 @@ noscript {
     display: none !important;
 }
 
+.minimize {
+    height: 35px !important;
+}
+
         /*      Desktop properties      */
 #desktop {
     min-height: 100%;
@@ -131,7 +135,12 @@ noscript {
     flex-wrap: wrap;
     justify-content: space-around;
 }
+    /*CSS rule 23*/
+.image-viewer main img {
 
+}
+
+    /*CSS rule 24*/
 .image-viewer main a {
     display: flex;
     justify-content: center;
@@ -155,11 +164,6 @@ noscript {
 #taskbar {
     border-top: thin solid black;
     border-bottom: thin solid black;
-}
-
-        /*For some reason this needs to be at the bottom of the style cheat     */
-.minimize {
-    height: 35px !important;
 }
 
 /*
