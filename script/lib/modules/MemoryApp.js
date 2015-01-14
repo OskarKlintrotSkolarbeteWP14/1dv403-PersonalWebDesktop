@@ -6,33 +6,33 @@
 define(["MemoryApp"], function() {
     var RandomGenerator = require(['Random']);
 
-    var MemoryApp = function (id, rows, cols, game) {
+    function MemoryApp(id, rows, cols, game){
 
-        this.getRows = function () {
+        this.getRows = function() {
             return rows;
         };
 
-        this.setRows = function (_rows) {
+        this.setRows = function(_rows) {
             rows = _rows;
         };
 
-        this.getCols = function () {
+        this.getCols = function() {
             return cols;
         };
 
-        this.setCols = function (_cols) {
+        this.setCols = function(_cols) {
             cols = _cols;
         };
 
-        this.getGame = function () {
+        this.getGame = function() {
             return "#" + game;
         };
 
-        this.setGame = function (_game) {
+        this.setGame = function(_game) {
             game = _game;
         };
 
-        this.Play = function () {
+        this.Play = function() {
 
             var randomArray = [],
 
@@ -68,7 +68,7 @@ define(["MemoryApp"], function() {
             }
 
 
-            var renderMemory = function (rows, cols, game) {
+            var renderMemory = function(rows, cols, game){
 
                 //Find where to put the table containing the memory
                 var divWrap = document.querySelector("#games");
@@ -89,7 +89,7 @@ define(["MemoryApp"], function() {
                 //Display the number of the game
                 var games = ["Första", "Andra", "Tredje", "Fjärde", "Femte", "Sjätte", "Sjunde", "Åttonde", "Nionde", "Tionde"];
                 var gameNumber = parseInt(game.replace("#game", ''));
-                p.innerHTML = games[gameNumber - 1] + " spelet";
+                p.innerHTML = games[gameNumber-1] + " spelet";
 
 
                 //Arrays to be used for the table
@@ -106,7 +106,7 @@ define(["MemoryApp"], function() {
                         tableContentArray[i][j] = document.createElement("td");
                         imgArray[i][j] = document.createElement("img");
                         aArray[i][j] = document.createElement("a");
-                        aArray[i][j].href = "#";
+                        aArray[i][j].href ="#";
                         imgArray[i][j].src = "../3-gameon/memory/pics/0.png";
                         aArray[i][j].appendChild(imgArray[i][j]);
                         tableContentArray[i][j].appendChild(aArray[i][j]);
@@ -131,7 +131,7 @@ define(["MemoryApp"], function() {
                 playGame(tableContentArray, imgArray, aArray, rows, cols);
             };
 
-            function playGame(tableContentArray, imgArray, aArray, rows, cols) {
+            function playGame(tableContentArray, imgArray, aArray, rows, cols){
                 var k = 0;
                 var l = 0;
 
@@ -143,8 +143,8 @@ define(["MemoryApp"], function() {
                     }
                 }
 
-                function onClickFunction(memoryPic, i, j) {
-                    aArray[i][j].onclick = function (e) {
+                function onClickFunction(memoryPic, i ,j) {
+                    aArray[i][j].onclick = function(e) {
                         e.preventDefault();
                         if (l === 0) {
                             imgArray[i][j].src = memoryPic;
@@ -168,7 +168,7 @@ define(["MemoryApp"], function() {
 
                 function tryAgain(timer) {
                     if (timer) {
-                        setTimeout(function () {
+                        setTimeout(function(){
                             turnBricks();
                             l = 0;
                         }, 1000);
@@ -249,11 +249,11 @@ define(["MemoryApp"], function() {
                     }
                 }
             }
-
             //Render the memory
             renderMemory(rows, cols, game);
 
+
         };
-    };
-    return MemoryApp;
+
+    }
 });
