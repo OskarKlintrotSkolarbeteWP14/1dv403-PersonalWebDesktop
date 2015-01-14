@@ -15,7 +15,8 @@ define(["WindowCreator"], function() {
 
     var WindowCreator = function(app, title, id, content){
 
-        console.log("I'm WindowCreator")
+        console.log("I'm WindowCreator");
+
         var obj = {
             TypeOfWindow: app,
             WindowID: "window-" + id,
@@ -66,7 +67,7 @@ define(["WindowCreator"], function() {
                 MemoryApp(id, 2,3,"game1");
             } else if (app === "rss-reader-DN") {
                 console.log("I'm calling RSSReader");
-                window.RSSReader(main, loading, id, "http://www.dn.se/m/rss/senaste-nytt");
+                RSSReader(main, loading, id, "http://www.dn.se/m/rss/senaste-nytt");
             } else if (app === "rss-reader-AB") {
                 console.log("I'm calling RSSReader");
                 window.RSSReader(main, loading, id, "http://www.aftonbladet.se/rss.xml");
@@ -74,7 +75,7 @@ define(["WindowCreator"], function() {
 
 
 
-        };
+        }
 
         function init() {
             var xhrTemplate = new XMLHttpRequest();
@@ -85,7 +86,7 @@ define(["WindowCreator"], function() {
                     setupWindow(xhrTemplate.responseText);
                 }
             };
-        };
+        }
 
         init();
 

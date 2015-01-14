@@ -2,11 +2,11 @@
  * Created by IDE on 2015-01-14.
  */
 
-//"use strict";
+"use strict";
 
-//define(["RSSReader"], function() {
+define(["RSSReader"], function() {
 
-    RSSReader = function(main, loading, id, url){
+    var RSSReader = function(main, loading, id, url){
 
         console.log("RSSReader " + id + " here!");
 
@@ -23,7 +23,7 @@
             }
         };
     };
-    //
-    //return RSSReader;
 
-//});
+    return RSSReader;
+
+});
