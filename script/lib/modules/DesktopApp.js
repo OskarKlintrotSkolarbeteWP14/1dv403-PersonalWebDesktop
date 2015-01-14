@@ -7,10 +7,9 @@ define(
     [
         "DesktopApp",
         "Mustache",
-        "jQuery",
         "ImageViewer"
     ],
-    function(DesktopApp, Mustache, jQuery, ImageViewer) {
+    function(DesktopApp, Mustache, ImageViewer) {
         var imageWindowArray = [];
         var imageIcon = document.querySelector("#imageIcon");
 
