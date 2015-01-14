@@ -169,3 +169,8 @@ noscript {
 /*
     Sticky footer adopted from http://css-tricks.com/snippets/css/sticky-footer/
 */
+
+img.desaturate {
+    filter: grayscale(100%);
+    -webkit-filter: grayscale(100%);
+}
