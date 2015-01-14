@@ -8,10 +8,14 @@ require.config({
     paths: {
         //Libraries
         Mustache: "mustache",
+        Random: "random",
 
         //Modules
         DesktopApp: "modules/DesktopApp",
-        ImageViewer: "modules/ImageViewer"
+        ImageViewer: "modules/ImageViewer",
+        MemoryApp: "modules/MemoryApp",
+        RSSReader: "modules/RSSReader",
+        WindowCreator: "modules/WindowCreator"
     }
 });
 
