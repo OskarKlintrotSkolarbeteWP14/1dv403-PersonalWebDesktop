@@ -5,56 +5,11 @@
 
 define(["ImageViewer"], function() {
     var Mustache = require('Mustache');
-    //var DesktopApp = require(['DesktopApp']);
 
-    var ImageViewer = function(id, content){
+    var ImageViewer = function(main, loading, id){
 
-        var obj = {
-            TypeOfWindow: "image-viewer",
-            WindowID: "window-" + id,
-            CloseButtonID: "close-button-" + id,
-            IconURL: "https://openclipart.org/people/jhnri4/Images-icon.svg",
-            Title: "Image Viewer",
-            Content: content
-        };
+        console.log("ImageViewer " + id + " here!");
 
-         function setupWindow(template){
-            //Render the window
-            var rendered = Mustache.render(template, obj);
-            var desktop = document.querySelector("#desktop");
-            desktop.insertAdjacentHTML('beforeend', rendered);
-
-            //Find elements
-            var thisWindow = desktop.querySelector(".window.window-" + id);
-            var closeIcon = desktop.querySelector(".window-close.close-button-" + id);
-            var header = desktop.querySelector(".header-window-" + id);
-            var main = desktop.querySelector("main.window-" + id);
-            var footer = desktop.querySelector(".window-" + id + " footer");
-            var loading = footer.querySelector(".loading");
-            var desktopMain = document.querySelector("body");
-
-            //Add events
-            closeIcon.addEventListener("click", function (e) {
-                e.preventDefault();
-                console.log("Closed window " + id);
-                thisWindow.remove();
-                //If the main is empty, the reset the background image
-                if (desktopMain.innerHTML.indexOf("noscript>\n</main") > -1) {
-                    document.styleSheets[0].cssRules[2].style.backgroundImage = "url(http://subtlepatterns.com/patterns/footer_lodyas.png)";
-                }
-            });
-
-             //Hide window when clicking on the header
-            header.addEventListener("click", function(){
-                thisWindow.classList.toggle("minimize");
-                main.classList.toggle("hidden");
-                footer.classList.toggle("hidden");
-            });
-
-            loadImageViewerApp(main, loading);
-        };
-
-        function loadImageViewerApp(main, loading){
             var imageArray;
 
             var xhr = new XMLHttpRequest();
@@ -129,34 +84,6 @@ define(["ImageViewer"], function() {
             }
 
         };
-
-        function init() {
-            var xhrTemplate = new XMLHttpRequest();
-            xhrTemplate.open('GET', 'template/Window.template', true);
-            xhrTemplate.send(null);
-            xhrTemplate.onreadystatechange = function () {
-                if (xhrTemplate.readyState === 4 && xhrTemplate.status === 200) {
-                    setupWindow(xhrTemplate.responseText);
-                }
-            };
-        };
-
-        init();
-
-
-        //An example of how to get the mustache template with jQuery, keeping this for personal references
-/*        $.get('template/Window.template', function(template) {
-            var rendered = Mustache.render(template, obj);
-            $('#desktop').append(rendered);
-            var closeIcon = document.querySelector(".window-close.close-button-" + id);
-            closeIcon.addEventListener("click", function(e){
-                console.log("Window ID: " + id);
-                console.log(DesktopApp.imageWindowArray);
-                e.preventDefault();
-            })
-        });*/
-
-    };
 
     return ImageViewer;
 });
